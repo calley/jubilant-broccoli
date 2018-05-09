@@ -1,0 +1,95 @@
+body {
+	
+}
+
+#header_container {
+	position: relative;
+	top: -32px;
+	width: 100%;
+	height: 400px;
+	background-image: url("../photos/welcome.jpg");
+	background-size: cover;
+}
+
+#body_container {
+	position: relative;
+	top: -32px;
+}
+
+#greet {
+	border-style: solid;
+    border-width: 2px;
+    border-color: rgba(0, 0, 0, .2);
+}
+
+.box {
+	background-color: rgba(0, 0, 0, .3);
+}
+
+.box2 {
+	background-color: rgba(0, 0, 0, .2);
+}
+
+#top {
+	position: relative;
+	top: 150px;
+	width:400px;
+	text-align: center;
+	font-size: 200%;
+	color: white;
+	letter-spacing:5px;
+}
+
+#head1 {
+	width:300px;
+	text-align: center;
+	font-size: 200%;
+	color: white;
+	letter-spacing:5px;
+}
+
+#head2 {
+	width:700px;
+	text-align: center;
+	color: white;
+}
+
+#head2 h2 {
+	font-size: 200%;
+	letter-spacing:4px;
+}
+
+#circles img {
+	vertical-align: middle;
+	width: 10px;
+	height: 10px;
+}
+
+#head2 p{
+	font-size: 120%;
+	letter-spacing:1px;
+}
+
+h2 {
+	letter-spacing:3px;
+}
+
+.row {
+	position: absolute;
+}
+
+.row div {
+	float: left;
+	position: relative;
+	width: 45%;
+	left: 4%;
+	height: 200px;
+	border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    color: white;
+}
+
+.row .box2 p {
+	letter-spacing:1px;
+}

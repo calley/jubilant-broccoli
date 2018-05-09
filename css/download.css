@@ -1,0 +1,98 @@
+body {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	background: rgb(236, 239, 241);
+}
+
+.dlLinks {
+	cursor:pointer;
+	color:blue;
+	text-decoration:underline;
+}
+
+.dlLinks:hover {
+	text-decoration:none;
+	/*text-shadow: 1px 1px 1px #555;*/
+}
+
+.space {
+	margin: 0 3px;
+}
+
+#dl {
+	top: 0px;
+	width: 600px;
+	z-index: 10;
+	position: fixed;
+	background: rgb(236, 239, 241);
+}
+
+img {
+	margin-right: 10px;
+	height: 100px;
+	float: left;
+	border: 0;
+}
+
+.playSong {
+	cursor:pointer;
+	height: 15px;
+	width: 15px;
+}
+
+.songInfo {
+	height: 80px;
+	position: relative;
+  	top: 5px;
+}
+
+#content {
+	position: relative;
+	top: 60px;
+}
+
+.pastSongss {
+	width: 480px;
+	height: 100px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .05), 0 1px 4px 0 rgba(0, 0, 0, .08), 0 3px 1px -2px rgba(0, 0, 0, .2);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	background: rgb(255, 255, 255);
+}
+
+.songName {
+    font-size: 180%;
+}
+
+p {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+p, .songName {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+ 	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+#progress {
+	width: 400px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: left;
+	background-color: #0f304f;
+}
+
+#progressBar {
+	background-color: #5B84FF;
+	height:3px;
+	width:0%;
+	position: relative;
+}

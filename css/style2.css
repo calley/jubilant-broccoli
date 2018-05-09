@@ -1,0 +1,124 @@
+body {
+	margin: 10px;
+	font: 84% Arial, sans-serif;
+	background-size:cover;
+	background-repeat:no-repeat;
+	color: black;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00d8ff+0,32ffe0+100 */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#00d8ff), color-stop(100%,#32ffe0));  /* Chrome,Safari4+ */
+}
+
+img {
+	margin-right: 10px;
+	margin-bottom: 3px;
+}
+
+h1 {
+	font-size: 100%
+}
+
+h2 {
+	text-align: center;
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: 2px;
+}
+
+.ti {
+	 float: left;
+}
+
+
+.wrapper {
+    text-align: center;
+}
+
+.wrapperr {
+    text-align: right;
+}
+
+.box {
+	background-color: rgba(0, 0, 0, .2);
+}
+
+.butt {
+    top: 50%;
+	text-decoration: none;
+	color: rgba(255,255,255,.9);
+	text-align:center;
+	background-color:rgba(0, 0, 0, .3);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgba(255,255,255, .65);
+}
+
+.sexyline {
+	height:2px;
+	width:210px;
+	background-color:rgba(0, 0, 0, .5);
+	margin:auto;
+}
+
+.scrollbox {
+	height:0px;
+	width:210px;
+	background-color:rgba(255, 255, 255, .5);
+	margin:auto;
+	overflow:auto;
+}
+
+.pastHolder {
+	width:100%;
+	background-color:rgba(255, 255, 255, .4);
+	margin:auto;
+	overflow:auto;
+}
+
+.pastSongss {
+	height:87px;
+}
+
+.songName {
+	font-size: 150%;
+}
+
+.playSong {
+	top: 10px;
+}
+
+.songTimebarr {
+	width:300px;
+}
+
+#curTime {
+
+}
+
+#songTimebar {
+	height:15px;
+	width:0%;
+	position: relative;
+	top: 15px;
+	background-color:rgb(0, 255, 255);
+}
+
+#reviewlink {
+	width: 200px;
+}
+
+a {
+	text-shadow:-.5px -.5px .5px #000000, .5px -.5px .5px #000000, -.5px .5px .5px #000000, .5px .5px .5px #000000;
+}
+
+a:link {
+    color: #00CCFF;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00CCFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}

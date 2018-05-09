@@ -1,0 +1,88 @@
+body {
+	margin: 10px;
+	width: 400px;
+	/*font: 84% Arial, sans-serif;*/
+	background: rgb(236, 239, 241);
+	margin-left: auto;
+    margin-right: auto;
+}
+
+#page1, #toggleOpt, #reviewlink, #holder {
+	/*font: 84% Arial, sans-serif;
+	font-size: 13px;
+	color: white;
+	text-shadow:-1px -1px 1px #000000, 1px -1px 1px #000000, -1px 1px 1px #000000, 1px 1px 1px #000000;*/
+}
+
+.sidebtn {
+	cursor:pointer;
+	color:blue;
+	text-decoration:underline;
+}
+
+.sidebtn:hover {
+	text-decoration:none;
+	/*text-shadow: 1px 1px 1px #555;*/
+}
+
+#curForm {
+	margin-top: 3px;
+	font-weight: bold;
+}
+
+h2 {
+	text-align: center;
+	/*font-weight: normal;
+	font-style: normal;
+	letter-spacing: 2px;*/
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.wrapperr {
+    text-align: right;
+}
+
+.box {
+	/*margin-top: 7px;
+	margin-bottom: 7px;
+	background-color: rgba(0, 0, 0, .2);*/
+	padding: 4px;
+	margin-bottom: 10px;
+	background: rgb(255, 255, 255);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .05), 0 1px 4px 0 rgba(0, 0, 0, .08), 0 3px 1px -2px rgba(0, 0, 0, .2);
+}
+
+.butt {
+    top: 50%;
+	text-decoration: none;
+	color: rgba(255,255,255,.9);
+	text-align:center;
+	background-color:rgba(0, 0, 0, .3);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgba(255,255,255, .65);
+}
+
+#advOptions {
+	margin-top: 2px;
+}
+
+#reviewlink, #advOptions {
+	width: 200px;
+}
+
+a:link {
+    color: #00FF66;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #00CCFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}

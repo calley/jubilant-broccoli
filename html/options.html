@@ -1,0 +1,231 @@
+<html>
+	<head>
+		<link href="../css/style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../js/external/jquery-ui.min.css">
+		<script src="../js/external/jquery/jquery.js"></script>
+		<script src="../js/external/jquery.js"></script>
+		<script src="../js/options.js"></script>
+		<script src="../js/advanced_options.js"></script>
+		<script src="../jquery-minicolors-master/jquery.minicolors.js"></script>
+		<link rel="stylesheet" href="../jquery-minicolors-master/jquery.minicolors.css">
+	</head>
+	<body>
+		<h2>General Settings</h2>
+		<div id="page1">
+			<div class="box">
+				<input id="toggleAdBlock" type="checkbox">-   Block Ads?</input></br>
+				<input id="toggleRUSTILL" type="checkbox">-   Block "Are You Still Listening" popup</input></br>
+			</div>
+			<div class="box">
+				<div>
+					<input id="toggleNoti" type="checkbox">-   Show Song Notifications?</input>
+					<div id="macNotiWarnBtn" class="sidebtn" style="display: inline;">MacOS users announcement (show)</div>
+					</br>
+					<div id="macNotiWarnTxt" style="background: rgba(54, 25, 25, .2);">
+						MacOS users receive different looking notifications due to chrome wanting to respect the MacOS "Do Not Disturb" functionality (among other things too). Disregard this message if you do not want to change this.
+						<a href="https://developers.google.com/web/updates/2017/04/native-mac-os-notifications" target="_blank"> More info can be found here</a>.
+						</br>
+						--If you would like to receive the "original" notifications, go to </br>" chrome://flags/#enable-native-notifications " in a new tab
+						and set "Enable native notifications" to "Disabled". This can be reverted at any time. Enjoy!
+					</div>
+				</div>
+				<div id="showNoti">
+					<div class="fade">
+						<p>How many seconds will the notification last?</p>
+						<input id="NotiLen" type="textarea"></input>
+					</div>
+					</br>
+					<div class="fade">
+						<input id="skipOnClick" type="checkbox">-   Skip song when notification is clicked?</input></br>
+						<div id="options1">
+							<input id="dislikeOnClick" type="checkbox">-   Dislike song when clicked?</input></br>
+						</div>
+						<input id="likeOnClick" type="checkbox">-   Like the song when notification is clicked?</input>
+					</div>
+				</div>
+			</div>
+			<div class="box">
+				<input id="toggleTheme" type="checkbox">-   Show Custom Page theme?</input>
+				<div id="BackgroundSelectionDiv">
+					<p>Upload an Image: <input id="uploadImage" type="file" accept="image/*" /></p>
+					<p>Choose pre-loaded themes:</p><select id="BackgroundSelector">
+						<option value="none">None</option>
+						<option value="dj">DJ</option>
+						<option value="beach">Beach</option>
+						<option value="city">City</option>
+						<option value="light">Blurred Lights</option>
+					</select>
+					</br></br>
+				</div>
+			</div>
+			<div class="box">
+				<input id="toggleColorPicker" type="checkbox">-   Use Color Picker?</input>
+				<div id="colorResetBtn" class="sidebtn" style="display: inline;">Reset Options to Default</div>
+				</br>
+				<div id="colorPickContainer">
+					</br>
+					<span>Bottom Bar Color</span>
+					<div id="bottomBarColor" style="display: inline;">
+						<div class="minicolors minicolors-theme-default minicolors-position-bottom minicolors-position-left">
+						<input type="text" id="rgb" class="demo1 minicolors-input" value="rgb(52, 64, 158)" size="25">
+						<span class="minicolors-swatch minicolors-sprite minicolors-input-swatch">
+							<span class="minicolors-swatch-color colorBoxAlex" style="opacity: 0.5; background-color: rgb(52, 64, 158);"></span>
+						</span>
+						<div class="minicolors-panel minicolors-slider-hue">
+							<div class="minicolors-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 52.8302px;"></div>
+							</div>
+							<div class="minicolors-opacity-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 75px;"></div>
+							</div>
+							<div class="minicolors-grid minicolors-sprite" style="background-color: rgb(0, 30, 255);">
+								<div class="minicolors-grid-inner"></div>
+								<div class="minicolors-picker" style="top: 57px; left: 101px;">
+									<div></div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					</br></br>
+					<span>Color 1</span>
+					<div id="color1" style="display: inline;">
+						<div class="minicolors minicolors-theme-default minicolors-with-opacity minicolors-position-bottom minicolors-position-left">
+						<input type="text" id="rgba" class="demo minicolors-input" value="rgba(52, 64, 158, 0.5)" size="25">
+						<span class="minicolors-swatch minicolors-sprite minicolors-input-swatch">
+							<span class="minicolors-swatch-color colorBoxAlex" style="opacity: 0.5; background-color: rgb(52, 64, 158);"></span>
+						</span>
+						<div class="minicolors-panel minicolors-slider-hue">
+							<div class="minicolors-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 52.8302px;"></div>
+							</div>
+							<div class="minicolors-opacity-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 75px;"></div>
+							</div>
+							<div class="minicolors-grid minicolors-sprite" style="background-color: rgb(0, 30, 255);">
+								<div class="minicolors-grid-inner"></div>
+								<div class="minicolors-picker" style="top: 57px; left: 101px;">
+									<div></div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					</br></br>
+					<span>Color 2</span>
+					<div id="color2" style="display: inline;">
+						<div class="minicolors minicolors-theme-default minicolors-with-opacity minicolors-position-bottom minicolors-position-left">
+						<input type="text" id="rgba" class="demo minicolors-input" value="rgba(52, 64, 158, 0.5)" size="25">
+						<span class="minicolors-swatch minicolors-sprite minicolors-input-swatch">
+							<span class="minicolors-swatch-color colorBoxAlex" style="opacity: 0.5; background-color: rgb(52, 64, 158);"></span>
+						</span>
+						<div class="minicolors-panel minicolors-slider-hue">
+							<div class="minicolors-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 52.8302px;"></div>
+							</div>
+							<div class="minicolors-opacity-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 75px;"></div>
+							</div>
+							<div class="minicolors-grid minicolors-sprite" style="background-color: rgb(0, 30, 255);">
+								<div class="minicolors-grid-inner"></div>
+								<div class="minicolors-picker" style="top: 57px; left: 101px;">
+									<div></div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					</br></br>
+					<span>Color 3</span>
+					<div id="color3" style="display: inline;">
+						<div class="minicolors minicolors-theme-default minicolors-with-opacity minicolors-position-bottom minicolors-position-left">
+						<input type="text" id="rgba" class="demo minicolors-input" value="rgba(52, 64, 158, 0.5)" size="25">
+						<span class="minicolors-swatch minicolors-sprite minicolors-input-swatch">
+							<span class="minicolors-swatch-color colorBoxAlex" style="opacity: 0.5; background-color: rgb(52, 64, 158);"></span>
+						</span>
+						<div class="minicolors-panel minicolors-slider-hue">
+							<div class="minicolors-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 52.8302px;"></div>
+							</div>
+							<div class="minicolors-opacity-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 75px;"></div>
+							</div>
+							<div class="minicolors-grid minicolors-sprite" style="background-color: rgb(0, 30, 255);">
+								<div class="minicolors-grid-inner"></div>
+								<div class="minicolors-picker" style="top: 57px; left: 101px;">
+									<div></div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					</br></br>
+					<span>Color 4</span>
+					<div id="color4" style="display: inline;">
+						<div class="minicolors minicolors-theme-default minicolors-with-opacity minicolors-position-bottom minicolors-position-left">
+						<input type="text" id="rgba" class="demo minicolors-input" value="rgba(52, 64, 158, 0.5)" size="25">
+						<span class="minicolors-swatch minicolors-sprite minicolors-input-swatch">
+							<span class="minicolors-swatch-color colorBoxAlex" style="opacity: 0.5; background-color: rgb(52, 64, 158);"></span>
+						</span>
+						<div class="minicolors-panel minicolors-slider-hue">
+							<div class="minicolors-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 52.8302px;"></div>
+							</div>
+							<div class="minicolors-opacity-slider minicolors-sprite">
+								<div class="minicolors-picker" style="top: 75px;"></div>
+							</div>
+							<div class="minicolors-grid minicolors-sprite" style="background-color: rgb(0, 30, 255);">
+								<div class="minicolors-grid-inner"></div>
+								<div class="minicolors-picker" style="top: 57px; left: 101px;">
+									<div></div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+					</br></br>
+					<span>Background Image Opacity</span>
+					<input id="backgroundImgOpac" type="number" step="0.01" value="0.00" style="width:75px;">
+					</br></br>
+				</div>
+			</div>
+		</div>
+		<h2>Download Options</h2>
+		<div id="holder">
+			<div class="box">
+				<input id="autoDL" type="checkbox">-   Auto Download?</input></br>
+			</div>
+			<div class="box">
+				<input id="customData" type="checkbox">-   Use custom name format?</input></br>
+				<div id="customName">
+					<p>Download Name Format:</p>
+					<input id="nameFormat" type="textarea"></input></br>
+					<div id="curForm"></div>
+					<p>The default format would look like:</p>
+					<p>*s by *a.mp4 [Also- try the .mp3 extension instead of .mp4!]</p>
+					<p> *a = artist, *s = song name, *l = album</p>
+				</div>
+			</div>
+		</div>
+		<div class="fade">
+			<center>
+				<div class="box" id="reviewlink">
+					<a href="https://chrome.google.com/webstore/detail/pandora-enhancer/cfkpeohmdjckkiblfeplofpibkcajfbo/reviews" target="blank">Rate This Extension!</a>
+				</div>
+			</center>
+		</div>
+		</br>
+		<div id="donatepls">
+			<center>
+				<p>Please consider a small donation of any amount!</p>
+				<p>Anything is appreciated and thank you for using my extension.</p> 
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+					<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				</form>
+			</center>
+		</div>
+	</body>
+</html>

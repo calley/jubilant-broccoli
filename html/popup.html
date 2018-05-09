@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<link href="../css/style3.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../js/external/jquery-ui.min.css">
+		<script src="../js/external/jquery/jquery.js"></script>
+		<script src="../js/external/jquery.js"></script>
+		<script src="../js/pic.js"></script>
+		<script src="../js/popup.js"></script>
+	</head>
+	<body>
+		<div class="fade">
+			<div class="playerBar">
+				<div class="wrapper">
+					<input id="t_down" type="image" class="playerBarItem" src="../photos/controls/btn_down.png"/>
+					<input id="t_up" type="image" class="playerBarItem" src="../photos/controls/btn_up.png"/>
+					<input id="toggle" type="image" class="playerBarItem" src="../photos/controls/btn_play.png"/>
+					<input id="skip" type="image" class="playerBarItem" src="../photos/controls/btn_skip.png"/>
+					<div id="progress">
+						<div id="progressBar"></div>
+					</div>
+					<div id="playerBarName">No music playing</div>
+				</div>
+			</div>
+		</div>
+		<div class="fade">
+			<center>
+				<div class="box" id="reviewlink">
+					<a href="https://chrome.google.com/webstore/detail/pandora-enhancer/cfkpeohmdjckkiblfeplofpibkcajfbo/reviews" target="blank">Rate This Extension!</a>
+				</div>
+			</center>
+		</div>
+		<div class="fade">
+			<div id="buttons" class="wrapper">
+				<input class="butt" id="openDLPage" type="button" value="Downloads Page"></input>
+				<input class="butt" id="openOptions" type="button" value="Options Page"></input>
+				<input class="butt" id="openColorPicker" type="button" value="ColorPicker"></input>
+				<!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+					<input class="butt" type="submit" value="Donations" border="1" alt="Donations">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+				</form>-->
+			</div>	
+			<div id="buttons2" class="wrapper" style="margin-top:5px; margin-bottom:5px;">
+				<input class="butt" id="openDonate" type="button" value="Donations"></input>
+			</div>
+		</div>
+	</body>
+</html>
