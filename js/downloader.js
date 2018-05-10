@@ -248,14 +248,19 @@ function tagFile(songArrayBuffer, coverArrayBuffer, request){
 			.setFrame('TALB', album)
 		  .setFrame('WORS', 'https://pandora.com')
 		  .setFrame('WOAS', request.data)
-			.setFrame('WCOM ', 'https://google.com')
+			.setFrame('WCOM', station)
+			.setFrame('WCOP', station)
 			//.setFrame('WPAY', 'https://google.com')
 
 	      .setFrame('APIC', {
 			  type: 3,
 			  data: coverArrayBuffer,
-			  description: 'Cover from Pandora' });
+			  description: 'Cover from Pandora' })
 
+				.setFrame('COMM', {
+				    description: 'description here',
+				    text: 'text here'
+				});
 
 	writer.addTag();
 
