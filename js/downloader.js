@@ -69,7 +69,7 @@ chrome.webRequest.onHeadersReceived.addListener(function(details) {
             }
             break;
         }
-    }    
+    }
     return {requestHeaders: details.requestHeaders};
 },
 {urls: ["<all_urls>"]},
@@ -179,9 +179,9 @@ function init_download(link, title){
 
 function getSongFile(urlToSongFile, request){
 	console.log("[getSongFile]",  request.name, urlToSongFile);
-	
+
 	var arrayBuffer = new ArrayBuffer();
-	
+
 	const xhr = new XMLHttpRequest();
 	xhr.open('GET', urlToSongFile, true);
 	xhr.responseType = 'arraybuffer';
@@ -205,9 +205,9 @@ function getSongFile(urlToSongFile, request){
 
 function getCoverFile(urlToCoverFile, SongArrayBuffer, request){
 	console.log("[getCoverFile]", request.name, urlToCoverFile);
-	
+
 	var arrayBuffer = new ArrayBuffer();
-	
+
 	const xhr = new XMLHttpRequest();
 	xhr.open('GET', urlToCoverFile, true);
 	xhr.responseType = 'arraybuffer';
@@ -232,48 +232,48 @@ function getCoverFile(urlToCoverFile, SongArrayBuffer, request){
 
 function tagFile(songArrayBuffer, coverArrayBuffer, request){
 	//console.log("[tagFile]", request.name, request.method);
-	
+
 	var download_view = request.data;
 	var name = request.name;
 	var artist = request.artist;
 	var album = request.album;
 
+	var station = request.station.replace(" - Now Playing on Pandora","");
 
 	// arrayBuffer of song or empty arrayBuffer if you just want only id3 tag without song
 	const writer = new ID3Writer(songArrayBuffer);
 	writer.setFrame('TIT2', name)
-		  .setFrame('TPE1', [artist])
-		  .setFrame('TALB', album)
+			//.setFrame('TPE1', [artist])
+			.setFrame('TPE2', artist)
+			.setFrame('TALB', album)
 		  .setFrame('WORS', 'https://pandora.com')
 		  .setFrame('WOAS', request.data)
-		  //.setFrame('WPAY', 'https://google.com')
-		  
+			.setFrame('WCOM ', 'https://google.com')
+			//.setFrame('WPAY', 'https://google.com')
+
 	      .setFrame('APIC', {
 			  type: 3,
 			  data: coverArrayBuffer,
 			  description: 'Cover from Pandora' });
-			  
-		  
+
+
 	writer.addTag();
 
 	const taggedSongBuffer = writer.arrayBuffer;
 	//const blob = writer.getBlob();
 	const url = writer.getURL();
-	
+
 	var outFileName = name+" - "+artist+" - "+album+".mp3";
 	outFileName = outFileName.replace("/","_").replace("\\","_").replace(":","-");
 	//outFileName = request.station+"/"+outFileName;
-	var station = request.station.substring(0,request.station.length-0);
 	station = station.replace("/","_").replace("\\","_").replace(":","-");
-	
-	station = station.replace(" - Now Playing on Pandora","");
-	
+
 	outFileName = station+"/"+outFileName;
 	console.log("tagFile", outFileName);
-	
+
 	//Testing outFileName
 	outFileName = "asdf.mp4";
-	
+
 	chrome.downloads.download({
 		url : url,
 		filename : outFileName
@@ -309,9 +309,9 @@ function internal_request(request, sender, sendResponse){
 					localStorage["PandoraPArtwork"] = JSON.stringify(pastArtwork);
 					pastSongInfoNames.push(request.name);
 					localStorage["PandoraPSInfoNames"] = JSON.stringify(pastSongInfoNames);
-			
+
 					console.log("Link:", lastDownloadLink);
-			
+
 					advanced_options = JSON.parse(localStorage["PandoraAdvPreferences"]);
 					if (advanced_options[0]){
 						var download_view = request.data;
@@ -327,16 +327,16 @@ function internal_request(request, sender, sendResponse){
 						document.getElementById("pastSongs").innerHTML = clicker;
 						document.getElementsByClassName("dlLinks")[0].click();*/
 						//init_download(lastDownloadLink, download_view);
-						
+
 						//download Album image...  added by calley 5-1-18
 						var imagefile = artist+" - "+album+request.image.substr(request.image.length - 4);
 						//init_download(request.image, imagefile);
-						
+
 						getSongFile(lastDownloadLink, request);
 					}
 				} else {
 					// song that already played
-				
+
 				}
 			} else {
 				// song that already played
@@ -376,9 +376,3 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
     	init_download(request.link, request.fn);
     }
 });
-
-
-
-
-
-
