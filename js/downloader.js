@@ -59,11 +59,11 @@ function received_DL_Link(){
 chrome.webRequest.onHeadersReceived.addListener(function(details) {
     for (var i = 0; i < details.responseHeaders.length; ++i) {
         if (details.responseHeaders[i].name === 'Content-Type') {
-        	console.log("DL:", details.responseHeaders[i].value, details.url);
+        	//console.log("DL:", details.responseHeaders[i].value, details.url);
             if ( (details.responseHeaders[i].value == "audio/mp4" || details.responseHeaders[i].value == "audio/mpeg") || ((details.url.indexOf("http://audio") > -1 || details.url.indexOf("https://audio") > -1) && details.url.indexOf("pandora.com/access/") > -1)){
             	if (lastDownloadLink != details.url){
 					lastDownloadLink = details.url;
-					console.log("DL:", lastDownloadLink);
+					//console.log("DL:", lastDownloadLink);
 					received_DL_Link();
 				}
             }
@@ -219,6 +219,8 @@ function getCoverFile(urlToCoverFile, SongArrayBuffer, request){
 		} else {
 			// handle error
 			console.error(xhr.statusText + ' (' + xhr.status + ')');
+			//console.log("[no cover]", request.name, urlToCoverFile);
+			tagFile2(SongArrayBuffer, request);
 		}
 	};
 	xhr.onerror = function() {
@@ -238,13 +240,19 @@ function tagFile(songArrayBuffer, coverArrayBuffer, request){
 	var artist = request.artist;
 	var album = request.album;
 
-	var station = request.station.replace(" - Now Playing on Pandora","");
+	var station = request.station; //.replace(" - Now Playing on Pandora","");
+	//" - "
+  var n = station.search(" - ");
+	if (n > 0){
+		station = station.substr(0,n);
+	}
+
 
 	// arrayBuffer of song or empty arrayBuffer if you just want only id3 tag without song
 	const writer = new ID3Writer(songArrayBuffer);
 	writer.setFrame('TIT2', name)
-			//.setFrame('TPE1', [artist])
-			.setFrame('TPE2', artist)
+			.setFrame('TPE1', [artist])
+			//.setFrame('TPE2', artist)
 			.setFrame('TALB', album)
 		  .setFrame('WORS', 'https://pandora.com')
 		  .setFrame('WOAS', request.data)
@@ -259,7 +267,66 @@ function tagFile(songArrayBuffer, coverArrayBuffer, request){
 			  description: 'Cover from Pandora' })
 
 				.setFrame('COMM', {
-				    description: 'description here',
+				    description: 'Pandora Station',
+				    text: station
+				});
+
+	writer.addTag();
+
+	const taggedSongBuffer = writer.arrayBuffer;
+	//const blob = writer.getBlob();
+	const url = writer.getURL();
+
+	var outFileName = name+" - "+artist+" - "+album+".mp3";
+	outFileName = outFileName.replace("/","_").replace("\\","_").replace(":","-");
+	//outFileName = request.station+"/"+outFileName;
+	station = station.replace("/","_").replace("\\","_").replace(":","-");
+
+	outFileName = station+"/"+outFileName;
+	console.log("tagFile", outFileName);
+
+	//Testing outFileName
+	outFileName = "asdf.mp4";
+
+	chrome.downloads.download({
+		url : url,
+		filename : outFileName
+	});
+
+}
+
+function tagFile2(songArrayBuffer, request){
+	//NO Cover Art
+	//console.log("[tagFile]", request.name, request.method);
+
+	var download_view = request.data;
+	var name = request.name;
+	var artist = request.artist;
+	var album = request.album;
+
+	var station = request.station; //.replace(" - Now Playing on Pandora","");
+	//" - "
+  var n = station.search(" - ");
+	if (n > 0){
+		station = station.substr(0,n);
+	}
+
+
+	// arrayBuffer of song or empty arrayBuffer if you just want only id3 tag without song
+	const writer = new ID3Writer(songArrayBuffer);
+	writer.setFrame('TIT2', name)
+			//.setFrame('TPE1', [artist])
+			.setFrame('TPE2', artist)
+			.setFrame('TALB', album)
+		  .setFrame('WORS', 'https://pandora.com')
+		  .setFrame('WOAS', request.data)
+			//.setFrame('WCOM', station)
+			//.setFrame('WCOP', station)
+			//.setFrame('WPAY', 'https://google.com')
+
+
+				.setFrame('COMM', {
+				    description: 'Pandora Station',
 				    text: station
 				});
 
@@ -335,7 +402,7 @@ function internal_request(request, sender, sendResponse){
 						//init_download(lastDownloadLink, download_view);
 
 						//download Album image...  added by calley 5-1-18
-						var imagefile = artist+" - "+album+request.image.substr(request.image.length - 4);
+						//var imagefile = artist+" - "+album+request.image.substr(request.image.length - 4);
 						//init_download(request.image, imagefile);
 
 						getSongFile(lastDownloadLink, request);
